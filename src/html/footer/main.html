@@ -1,0 +1,170 @@
+
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <title>LINE Plus Corporation | 홈</title>
+    <link rel="stylesheet" href="css/service.css">
+</head>
+<body>
+<!-- content -->
+<div id="lc_content">
+    <div id="lc_dimmed" class="dimmed"></div>
+    <div id="lc_gnb"></div>
+    <!-- container -->
+    <div class="container">
+    <a href=""></a>
+<!-- 영상 영역 -->
+<div class="main_roll_banner1">
+  <div id="main_mvclip" class="mvclip"></div>
+  <div class="valign_top">
+    <h3 class="matt">CLOSING <span>THE DISTANCE</span><br>
+      <a href="https://youtu.be/Ko8kgkE4eXg" target="_blank" class="mlnk">Watch the Video</a><br>
+      <a href="/company/mission" class="sublnk">LINE's Mission</a>
+    </h3>
+  </div>
+</div>
+<!-- //visual 1 -->
+
+<!-- News -->
+<div class="main_title_area">
+  <h3>NEWS ROOMdd
+    <a href="/pr/news/" class="submenu">more</a>
+  </h3>
+  <ol class="main_list">
+    <li>
+      <a href="#">
+        <p class="main_title">
+          뉴스 타이틀
+        </p>
+        <p class="main_inf">2017.02.02 <span class="bar"></span> LINE Family Apps</p>
+        <p class="main_cont">뉴스내용</p>
+      </a>
+    </li>
+    <li>
+        <a href="#">
+        <p class="main_title">
+            뉴스 타이틀
+        </p>
+        <p class="main_inf">2016.10.05 <span class="bar"></span> LINE Family Apps</p>
+        <p class="main_cont">뉴스내용</p>
+      </a>
+    </li>
+  </ol>
+</div>
+<!-- //News -->
+
+<!-- Jobs -->
+<div class="main_title_area jobs_area">
+  <h3>CAREER
+    <a href="https://recruit.linepluscorp.com/lineplus/career/list" class="submenu">more</a>
+  </h3>
+  <ol class="main_list">
+  </ol>
+</div>
+<!-- //Jobs -->
+
+<!-- visual 2 -->
+<div class="main_roll_banner2">
+  <div class="valign">
+    <div class="va_center">
+      <h3 class="hatt">Fearless Challenge</h3>
+      <p class="hamm">Striving to become the one<br> and only Smart portal from Asia</p>
+      <!-- <a href="/career/way" class="hlnk">more</a> -->
+    </div>
+  </div>
+</div>
+<!-- //visual 2 -->
+
+<script>function onYouTubeIframeAPIReady(){yplayer=new YT.Player("main_mvclip",{width:"640",height:"360",videoId:"JPpiKm8dKR8",playerVars:{controls:0,showinfo:0,modestbranding:1,wmode:"transparent"},events:{onReady:onPlayerReady,onStateChange:onPlayerStateChange}})}function onPlayerReady(e){e.target.mute(),e.target.seekTo(0),e.target.playVideo()}function onPlayerStateChange(e){e.data===YT.PlayerState.ENDED&&e.target.seekTo(0)}function mainVisualResize(){var e=window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth,t=document.getElementById("main_mvclip");1920>e||(t.style.width=e+"px",t.style.height=Math.floor(e/16*9)+"px",t.style.marginLeft=-Math.floor(e/2)+"px")}var ytag=document.createElement("script"),yplayer;ytag.src="https://www.youtube.com/iframe_api";var firstScriptTag=document.getElementsByTagName("script")[0];firstScriptTag.parentNode.insertBefore(ytag,firstScriptTag),window.onresize=mainVisualResize;</script>
+</div>
+<!-- //container -->
+<div id="lc_footer"></div>
+</div>
+<!-- //content -->
+<!-- mobileMenu -->
+<div id="lc_slider"></div>
+<!-- //mobileMenu -->
+
+<script>
+window.LCU = window.LCU || {
+  area: 'ko', // g:global, ja:japan, ko:korea
+  menu_1: 0, // 1depth (if home: 0) : 1 ~
+  menu_2: 0 // 2depth (if no 2depth: 0) : 1 ~
+};
+</script>
+<!--[if lt IE 9]>
+<script src="//scdn.line-apps.com/n/_s1/_0/linecorp-web-uit/js/oldieshim_1487158388.js"></script>
+<![endif]-->
+<script src="//scdn.line-apps.com/n/_s1/_0/linecorp-web-uit/js/service.min_1490246271.js"></script>
+<script>
+var menu_in_ir_pre;
+$(document).ready(function(){
+  $("#career_select_job").change(function(obj, jobName){
+    jobName = jobName || $(this).val();
+    $("tr.career_row").each( function(){
+      $(this).show();
+      if( jobName != "all" && jobName != $(this).data("job") ){
+        $(this).hide();
+      }
+    });
+  });
+  $("#career_select_location").change(function(){
+    location.href = eval("LCU.job.pc." + $(this).val());
+  });
+  if( location.href.split("?").length > 1 ){
+  var jobName = decodeURI(getParam("job"));
+    if( jobName ){
+      $('#career_select_job').trigger('change', jobName);
+    }
+  }
+  function getParam(name){
+    var results = new RegExp('[\?&amp;]' + name + '=([^&amp;#]*)').exec(window.location.href);
+    return results[1] || 0;
+  }
+
+  $('.ir_tab_n li a').click(function(e) {
+    e.preventDefault();
+    var parent = $('.ir_tab_n'),
+      tab_1 = $('#ir1_area'),
+      tab_2 = $('#ir2_area');
+    parent.find('li').removeClass('on');
+    switch ($(this).parent().index()) {
+      case 0:
+        parent.find('li:eq(0)').addClass('on');
+        tab_1.show();
+        tab_2.hide();
+        break;
+      case 1:
+        parent.find('li:eq(1)').addClass('on');
+        tab_1.hide();
+        tab_2.show();
+        break;
+      default:
+    }
+  });
+
+  $('#ir_library_quarter').change(function(){
+    var quarter = $(this).val();
+    var url = "//ir/library/" + quarter + '_';
+    var func = function(category) {
+      $.get(url + category, function(html){
+        $('#' + category).html(html);
+      });
+    };
+    var categories = ['eventsAndMaterials', 'quarterlyAnnualFillings'];
+    for (var i = 0; i < categories.length; i++) {
+      func(categories[i]);
+    }
+  });
+
+  menu_in_ir_pre = $('.menu_in_ir').val();
+  $('.menu_in_ir').change(function(){
+    if ($(this).attr('id') === 'ir_library_quarter') return false;
+    if (menu_in_ir_pre === $(this).val()) return false;
+    location.href = $(this).val();
+  });
+});
+</script>
+</body>
+</html>
